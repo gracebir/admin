@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import { useFormik } from "formik";
 import Logo from "../../assets/logo.svg";
 import Button from "../../components/SubmitButton";
@@ -11,22 +11,23 @@ import {
   SignMainText,
   SignSecondaryText,
   SignText,
-} from "./LoginStyled";
-import { LoginType } from "../../typing";
+} from "../Login/LoginStyled";
+import { buttonType, registerProps } from '../../typing';
 
-const initialValues: LoginType = {
-  email: "",
-  password: "",
-};
-
-const Login = () => {
-  const onSubmit = (values: LoginType) => {
-    console.log(values);
+const initialValues: registerProps = {
+    email: "",
+    password: "",
+    firstname: ""
   };
-  const { values, handleChange, handleSubmit } = useFormik({
-    initialValues,
-    onSubmit,
-  });
+
+const Register = () => {
+    const onSubmit = (values: registerProps) => {
+        console.log(values);
+      };
+      const { values, handleChange, handleSubmit } = useFormik({
+        initialValues,
+        onSubmit,
+      });
   return (
     <LoginContainer>
       <LoginFormWrapper>
@@ -35,10 +36,19 @@ const Login = () => {
           <SignSecondaryText>Dashboard Kit</SignSecondaryText>
         </SignHeader>
         <SignHeader>
-          <SignMainText>Log In to Dashboard Kit</SignMainText>
+          <SignMainText>Sign Up to Dashboard Kit</SignMainText>
           <SignText>Enter your email and password below</SignText>
         </SignHeader>
         <SignForm onSubmit={handleSubmit}>
+        <TextField
+            onChange={handleChange}
+            value={values.firstname}
+            name="firstname"
+            inputType="text"
+            isPassword={false}
+            label="Firstname"
+            placeholder="Firstname"
+          />
           <TextField
             onChange={handleChange}
             value={values.email}
@@ -56,11 +66,11 @@ const Login = () => {
             label="password"
             placeholder="Password"
           />
-          <Button typeButton={undefined} text="Log In" />
+          <Button typeButton={buttonType.submit} text="Sign In" />
         </SignForm>
       </LoginFormWrapper>
     </LoginContainer>
-  );
-};
+  )
+}
 
-export default Login;
+export default Register

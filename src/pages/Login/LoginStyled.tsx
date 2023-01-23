@@ -10,7 +10,7 @@ export const LoginContainer = styled.div`
 
 export const LoginFormWrapper = styled.div`
     width: 23.75em;
-    height: 36.375em;
+    min-height: 36.375em;
     background-color: #fff;
     border-radius: 8px;
     padding: 2.5em 2em;

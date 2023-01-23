@@ -13,13 +13,19 @@ export type textFieldProps = {
     inputType?: string   
 }
 
-export enum ButtonType {
-    submit='submit',
-    button='button',
-    reset='reset',
+export enum buttonType {
+    button = 'button',
+    submit= 'submit',
+    reset='reset'
 }
 
 export type signButtonProps = {
-    type: ButtonType | undefined
+    typeButton: buttonType | undefined
     text: string
+}
+
+export type registerProps = {
+    email: string
+    password: string
+    firstname: string
 }
