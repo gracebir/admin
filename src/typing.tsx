@@ -1,3 +1,5 @@
+import { IconType } from "react-icons"
+
 export type LoginType = {
     email: string
     password: string
@@ -28,4 +30,10 @@ export type registerProps = {
     email: string
     password: string
     firstname: string
+}
+
+export type sideBarLinkProps = {
+    linkText: string
+    LinkLogo: IconType
+    href: string
 }
